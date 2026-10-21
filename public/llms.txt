@@ -1,0 +1,32 @@
+# Aditya Deshmukh - Full-Stack Web and Mobile Developer
+
+> Associate Software Engineer specializing in NestJS backend services, AWS cloud infrastructure (EC2, RDS, S3), Next.js web applications, and React Native (Expo) mobile apps. Based in India, available for full-time remote software engineering roles worldwide.
+
+## Professional Summary
+Aditya Deshmukh is a Full-Stack Software Engineer with proven production experience shipping resilient backend APIs, managing cloud infrastructure, and releasing web and mobile applications from scratch to Google Play Store release. Educated with a Bachelor of Computer Applications (BCA) from Indira Gandhi National Open University (IGNOU).
+
+- Canonical Website: https://adityapro.online
+- Email: adityadesh937@gmail.com
+- GitHub: https://github.com/adi-de9
+- GitHub (Alternative): https://github.com/Aditya-Deshmukh9
+- LinkedIn: https://linkedin.com/in/adi-de9
+- Twitter/X: https://x.com/adityadesh937
+- Archive Portfolio: https://adityafsd.online
+
+## Core Technical Competencies
+- Backend & Cloud: NestJS, Node.js, Express.js, TypeScript, PostgreSQL, MongoDB, MySQL, AWS EC2, AWS RDS, AWS S3, REST APIs, Microservices, Razorpay Webhooks.
+- Frontend & Mobile: Next.js, React.js, React Native (Expo), TypeScript, Tailwind CSS, Three.js, GSAP.
+- DevOps & Tooling: Git, Docker, Vercel DNS, Google Play Console release management, MSG91 DLT OTP integration.
+
+## Key Projects
+- Quick Events Platform: Full-cycle exhibitor registration, live QR pass validation, and SMS OTP dispatches on AWS RDS PostgreSQL & EC2. (Live: https://adityapro.online)
+- Content Genie: AI-powered subscription content generation platform with streaming responses and idempotent Razorpay webhook billing. (Live: https://contentgenie.adityapro.online, Repo: https://github.com/Aditya-Deshmukh9/ai-content-generator)
+- Retail E-Commerce Storefront: High-performance fashion retail store with optimized Lighthouse scores and inventory synchronization. (Live: https://ecom-colab-a.vercel.app, Repo: https://github.com/Aditya-Deshmukh9/Ecommerce)
+- NotifiQ Mobile Application: Cross-platform mobile habit and notification tracker built with React Native and offline-first local storage. (Live: https://notifiq-app.vercel.app, Repo: https://github.com/adi-de9)
+- CONVOMAX Component Library: Refactored 200+ legacy administrative screens into reusable, WCAG-accessible React components for government and university portals. (Repo: https://github.com/adi-de9)
+- Weather Forecast Web App: Predictive 5-day weather application with dynamic meteorological UI and geolocation. (Live: https://weather-forecast-internshala.netlify.app, Repo: https://github.com/Aditya-Deshmukh9/weather-forecast-webapp-javascript)
+
+## Experience Signals
+- Associate Software Engineer at Quick Events (Current): Built backend services with NestJS, configured AWS EC2/RDS/S3, and handled Google Play releases.
+- Frontend Developer Intern at CONVOMAX: Rebuilt 200+ UI components, boosting performance and responsiveness across administrative dashboards.
+- Web Developer at Sanggo: Built 60fps 3D web interfaces with Next.js and Three.js.

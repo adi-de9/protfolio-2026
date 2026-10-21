@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
+@theme {
+  --color-obsidian: #0A0A09;
+  --color-charcoal: #121210;
+  --color-surface: #1A1917;
+  --color-surface-hover: #242320;
+  --color-alabaster: #F4F3EF;
+  --color-stone: #9E9C94;
+  --color-vermilion: #E04F33;
+  --color-moss: #2E9B68;
+
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-obsidian: #0A0A09;
+  --bg-charcoal: #121210;
+  --fg-alabaster: #F4F3EF;
+  --fg-stone: #9E9C94;
+  --accent-vermilion: #E04F33;
+  --accent-moss: #2E9B68;
+  --hairline: rgba(244, 243, 239, 0.09);
+  --hairline-strong: rgba(244, 243, 239, 0.24);
+
+  /* Awwwards 3 Core Easings */
+  --ease-primary: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-transition: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Descender Safety Clearance (0.18em minimum) */
+  --descender-clearance: 0.18em;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background-color: var(--bg-obsidian);
+  color: var(--fg-alabaster);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--accent-vermilion);
+  color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A09;
+}
+::-webkit-scrollbar-thumb {
+  background: #262522;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E04F33;
+}
+
+/* Architectural 1px Hairline Borders */
+.hairline-t { border-top: 1px solid var(--hairline); }
+.hairline-b { border-bottom: 1px solid var(--hairline); }
+.hairline-l { border-left: 1px solid var(--hairline); }
+.hairline-r { border-right: 1px solid var(--hairline); }
+.hairline-box { border: 1px solid var(--hairline); }
+.hairline-box-strong { border: 1px solid var(--hairline-strong); }
+
+/* Swiss Architectural Grid Background */
+.bg-editorial-grid {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, rgba(244, 243, 239, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 243, 239, 0.025) 1px, transparent 1px);
+}
+
+/* Descender Safety for Large Display Headlines */
+.descender-safe {
+  padding-bottom: var(--descender-clearance);
+  overflow: visible !important;
+}
+
+/* Full Button Interaction Arc (Hover -> Press -> Release -> Leave) */
+.btn-awwwards {
+  position: relative;
+  will-change: transform, box-shadow;
+  transition: transform 0.28s var(--ease-primary),
+              box-shadow 0.28s var(--ease-primary),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease;
+}
+.btn-awwwards:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 12px 28px -10px rgba(224, 79, 51, 0.35);
+}
+.btn-awwwards:active {
+  transform: translateY(0) scale(0.975);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.1s;
+}
+
+/* Tactile Touch-Card Scale & Border Physics */
+.touch-card {
+  will-change: transform, border-color, background-color;
+  transition: transform 0.28s var(--ease-reveal),
+              border-color 0.22s ease,
+              background-color 0.22s ease,
+              box-shadow 0.28s var(--ease-reveal);
+}
+.touch-card:hover {
+  border-color: var(--hairline-strong);
+}
+.touch-card:active {
+  transform: scale(0.985);
+  border-color: var(--accent-vermilion);
+}
+
+/* Hide Scrollbars on Horizontal Filter Strips */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Infinite Editorial Marquee - Always running on Desktop & Mobile */
+@keyframes marqueeSlide {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeSlide 28s linear infinite !important;
+  animation-play-state: running !important;
+}
+
+/* Animated SVG Flow Line inside Project Drawer */
+@keyframes flowDash {
+  0% { stroke-dashoffset: 96; }
+  100% { stroke-dashoffset: 0; }
+}
+.flow-line {
+  stroke-dasharray: 6 6;
+  animation: flowDash 2.4s linear infinite;
+}
+
+/* Contact CTA Card - Orange to Red Gradient Border & Ambient Glow */
+.contact-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(#10100f, #10100f) padding-box,
+    linear-gradient(
+      115deg,
+      #ff6a2a 0%,
+      #ff493d 45%,
+      rgba(255, 106, 42, 0.45) 75%,
+      #ff6a2a 100%
+    ) border-box;
+
+  box-shadow:
+    0 0 25px rgba(255, 80, 35, 0.08),
+    0 0 65px rgba(255, 65, 35, 0.05);
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255, 90, 40, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255, 75, 35, 0.20),
+      transparent 28%
+    );
+
+  border-radius: inherit;
+}
+
+/* Three.js Canvas Styling */
+#studio-canvas-wrap canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+  touch-action: pan-y;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .flow-line {
+    animation: none !important;
+  }
 }
